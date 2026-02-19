@@ -117,7 +117,11 @@
         "triggers": { "type": "array", "items": { "type": "string" } },
         "sketched": { "type": "boolean" },
         "prototype": { "type": "object" },
-        "listElement": { "type": "boolean" }
+        "listElement": { "type": "boolean" },
+        "consistencyTags": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/ConsistencyTag" }
+        }
       },
       "required": ["id", "title", "fields", "type", "dependencies"],
       "additionalProperties": false
@@ -215,6 +219,16 @@
         "authRequired": { "type": "boolean" }
       },
       "required": ["name", "authRequired"],
+      "additionalProperties": false
+    },
+
+    "ConsistencyTag": {
+      "type": "object",
+      "properties": {
+        "key":         { "type": "string" },
+        "sourceField": { "type": "string" }
+      },
+      "required": ["key", "sourceField"],
       "additionalProperties": false
     },
 
